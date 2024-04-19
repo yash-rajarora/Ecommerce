@@ -1,6 +1,9 @@
-import 'package:ecom/common/widget/custom_shapes/circular_container.dart';
-import 'package:ecom/common/widget/custom_shapes/curved_edges.dart';
-import 'package:ecom/utils/constants/colors.dart';
+import 'package:ecom/Utils/constants/sizes.dart';
+import 'package:ecom/common/widget/custom_shapes/primary_header_container.dart';
+import 'package:ecom/common/widget/custom_shapes/search_container.dart';
+import 'package:ecom/common/widget/texts/section_heading.dart';
+import 'package:ecom/features/shop/screens/home/widget/home_appbar.dart';
+import 'package:ecom/features/shop/screens/home/widget/home_categories.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -14,7 +17,40 @@ class HomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            TCurvedEdgesWidget()
+            TPrimaryHeaderContainer(
+              child: Column(
+                children: [
+                  THomeAppBar(),
+                  SizedBox(
+                    height: TSizes.spaceBtwSections,
+                  ),
+                  TSearchContainer(
+                    text: 'Search in Store',
+                  ),
+                  SizedBox(
+                    height: TSizes.spaceBtwSections,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: TSizes.defaultSpace),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TSectionHeading(
+                          title: 'Popular Catgories',
+                          showActionButton: false,
+                        ),
+                        SizedBox(
+                          height: TSizes.spaceBtwItems,
+                        ),
+                        THomeCategories()
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+
+
           ],
         ),
       ),
@@ -22,31 +58,6 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class TCurvedEdgesWidget extends StatelessWidget {
-  const TCurvedEdgesWidget({
-    super.key, this.child,
-  });
 
-  final Widget? child;
-  @override
-  Widget build(BuildContext context) {
-    return ClipPath(
-      clipper: TCustomCurvedEdges() ,
-      child: Container(
-        color: TColors.primary,
-        padding: EdgeInsets.all(0),
-        child: SizedBox(
-          height: 400,
-          child: Stack(
-            children: [
-              Positioned(top:-150 ,right: -250,child: TCircularContainer(backgroundColor: TColors.textWhite.withOpacity(0.1))),
-              Positioned(top:100 ,right: -300,child: TCircularContainer(backgroundColor: TColors.textWhite.withOpacity(0.1))),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
 
 
