@@ -1,7 +1,7 @@
 import 'package:ecom/Utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'circular_container.dart';
-import 'curved_edges_widget.dart';
+import '../curved_edges_widget.dart';
 
 class TPrimaryHeaderContainer extends StatelessWidget {
   const TPrimaryHeaderContainer({

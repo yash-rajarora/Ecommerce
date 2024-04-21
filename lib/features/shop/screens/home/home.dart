@@ -1,7 +1,9 @@
 import 'package:ecom/Utils/constants/image_strings.dart';
 import 'package:ecom/Utils/constants/sizes.dart';
-import 'package:ecom/common/widget/custom_shapes/primary_header_container.dart';
-import 'package:ecom/common/widget/custom_shapes/search_container.dart';
+import 'package:ecom/common/widget/custom_shapes/Container/primary_header_container.dart';
+import 'package:ecom/common/widget/custom_shapes/Container/search_container.dart';
+import 'package:ecom/common/widget/layouts/grid_layout.dart';
+import 'package:ecom/common/widget/product/product_cards/product_card_vertical.dart';
 import 'package:ecom/common/widget/texts/section_heading.dart';
 import 'package:ecom/features/shop/screens/home/widget/home_appbar.dart';
 import 'package:ecom/features/shop/screens/home/widget/home_categories.dart';
@@ -16,7 +18,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -54,7 +56,20 @@ class HomeScreen extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.all(TSizes.defaultSpace),
-              child: TPromoSlider(banner: [TImages.promoBanner1,TImages.promoBanner2,TImages.promoBanner3,],),
+              child: Column(
+                children: [
+                  TPromoSlider(
+                    banner: [
+                      TImages.promoBanner1,
+                      TImages.promoBanner2,
+                      TImages.promoBanner3,
+                    ],
+                  ),
+                  SizedBox(height: TSizes.spaceBtwSections),
+                  TGridLayout(itemCount: 4,itemBuilder: (_,index) => TProductCardVertical()),
+
+                ],
+              ),
             ),
           ],
         ),

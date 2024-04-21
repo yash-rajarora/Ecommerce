@@ -2,7 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecom/Utils/constants/colors.dart';
 import 'package:ecom/Utils/constants/image_strings.dart';
 import 'package:ecom/Utils/constants/sizes.dart';
-import 'package:ecom/common/widget/custom_shapes/circular_container.dart';
+import 'package:ecom/common/widget/custom_shapes/Container/circular_container.dart';
 import 'package:ecom/common/widget/images/t_rounded_image.dart';
 import 'package:ecom/features/shop/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
