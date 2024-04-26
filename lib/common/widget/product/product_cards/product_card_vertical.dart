@@ -8,6 +8,7 @@ import 'package:ecom/common/widget/icons/t_circular_icon.dart';
 import 'package:ecom/common/widget/images/t_rounded_image.dart';
 import 'package:ecom/common/widget/texts/product_price_text.dart';
 import 'package:ecom/common/widget/texts/product_title_text.dart';
+import 'package:ecom/common/widget/texts/t_brand_title_with_verified_icon.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -78,38 +79,33 @@ class TProductCardVertical extends StatelessWidget {
                     smallSize: true,
                   ),
                   SizedBox(height: TSizes.spaceBtwItems / 2),
-                  Row(
-                    children: [
-                      Text('Nike',
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 1,
-                          style: Theme.of(context).textTheme.labelMedium),
-                      const SizedBox(width: TSizes.xs),
-                      const Icon(Iconsax.verify5,
-                          color: TColors.primary, size: TSizes.iconXs),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const TProductPriceText(price:'35',),
-                      Container(
-                        decoration: const BoxDecoration(
-                            color: TColors.dark,
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(TSizes.cardRadiusMd),
-                              bottomRight:
-                                  Radius.circular(TSizes.productImageRadius),
-                            )),
-                        child: const SizedBox(
-                            width: TSizes.iconLg * 1.2,
-                            height: TSizes.iconLg * 1.2,
-                            child: Center(child: Icon(Iconsax.add, color: TColors.white))),
-                      ),
-                    ],
-                  )
+                  TBrandTitleWithVerifiedIcon(title: 'Nike',),
+
                 ],
               ),
+            ),
+            const Spacer(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(left: TSizes.sm),
+                  child: TProductPriceText(price:'35',),
+                ),
+                Container(
+                  decoration: const BoxDecoration(
+                      color: TColors.dark,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(TSizes.cardRadiusMd),
+                        bottomRight:
+                        Radius.circular(TSizes.productImageRadius),
+                      )),
+                  child: const SizedBox(
+                      width: TSizes.iconLg * 1.2,
+                      height: TSizes.iconLg * 1.2,
+                      child: Center(child: Icon(Iconsax.add, color: TColors.white))),
+                ),
+              ],
             )
           ],
         ),
@@ -117,5 +113,8 @@ class TProductCardVertical extends StatelessWidget {
     );
   }
 }
+
+
+
 
 

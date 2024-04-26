@@ -1,5 +1,6 @@
 import 'package:ecom/Utils/constants/image_strings.dart';
 import 'package:ecom/Utils/constants/sizes.dart';
+import 'package:ecom/Utils/constants/text_strings.dart';
 import 'package:ecom/common/widget/custom_shapes/Container/primary_header_container.dart';
 import 'package:ecom/common/widget/custom_shapes/Container/search_container.dart';
 import 'package:ecom/common/widget/layouts/grid_layout.dart';
@@ -66,8 +67,9 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: TSizes.spaceBtwSections),
+                  TSectionHeading(title: TTexts.popularProducts,onPressed: (){}),
+                  SizedBox(height:TSizes.spaceBtwItems),
                   TGridLayout(itemCount: 4,itemBuilder: (_,index) => TProductCardVertical()),
-
                 ],
               ),
             ),
