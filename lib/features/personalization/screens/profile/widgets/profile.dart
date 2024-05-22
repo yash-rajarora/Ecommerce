@@ -4,9 +4,7 @@ import 'package:ecom/common/widget/appbar/appbar.dart';
 import 'package:ecom/common/widget/images/t_circular_image.dart';
 import 'package:ecom/common/widget/texts/section_heading.dart';
 import 'package:ecom/features/personalization/screens/profile/widgets/profile_menu.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -34,7 +32,7 @@ class ProfileScreen extends StatelessWidget {
                       width: 80,
                       height: 80,
                     ),
-                    TextButton(onPressed: (){}, child: Text('Change Profile Picture')),
+                    TextButton(onPressed: (){}, child: const Text('Change Profile Picture')),
                   ],
                 ),
               ),
@@ -67,7 +65,7 @@ class ProfileScreen extends StatelessWidget {
               Center(
                 child: TextButton(
                   onPressed: (){},
-                  child: Text('Delete Account',style: TextStyle(color: Colors.red)),
+                  child: const Text('Delete Account',style: TextStyle(color: Colors.red)),
                 ),
               )
             ],

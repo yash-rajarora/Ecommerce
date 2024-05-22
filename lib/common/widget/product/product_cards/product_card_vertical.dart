@@ -9,9 +9,11 @@ import 'package:ecom/common/widget/images/t_rounded_image.dart';
 import 'package:ecom/common/widget/texts/product_price_text.dart';
 import 'package:ecom/common/widget/texts/product_title_text.dart';
 import 'package:ecom/common/widget/texts/t_brand_title_with_verified_icon.dart';
+import 'package:ecom/features/shop/screens/product_detail/product_detail.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class TProductCardVertical extends StatelessWidget {
@@ -21,7 +23,7 @@ class TProductCardVertical extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: (){},
+      onTap: () => Get.to(()=>const ProductDetail()),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),

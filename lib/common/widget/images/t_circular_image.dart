@@ -8,7 +8,7 @@ class TCircularImage extends StatelessWidget {
     super.key,
     this.fit = BoxFit.cover,
     required this.image,
-    this.isNetworkImage = true,
+    this.isNetworkImage = false,
     this.overlayColor,
     this.backgroundColor,
     this.height = 56,
