@@ -4,7 +4,10 @@ import 'package:ecom/common/widget/custom_shapes/Container/primary_header_contai
 import 'package:ecom/common/widget/list_tiles/settings_menu_tile.dart';
 import 'package:ecom/common/widget/list_tiles/user_profile_tile.dart';
 import 'package:ecom/common/widget/texts/section_heading.dart';
+import 'package:ecom/features/personalization/screens/address/address.dart';
+import 'package:ecom/features/shop/screens/cart/cart.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -36,11 +39,13 @@ class SettingsScreen extends StatelessWidget {
                   const TSectionHeading(
                       title: 'Account Settings', showActionButton: false),
                   const SizedBox(height: TSizes.spaceBtwItems),
-                  const TSettingsMenuTile(
+                  TSettingsMenuTile(
                       icon: Iconsax.safe_home,
+                      onTap: ()=> Get.to(()=> const UserAddressScreen()),
                       title: 'My Addresses',
                       subTitle: 'Set shopping delivery address'),
-                  const TSettingsMenuTile(
+                  TSettingsMenuTile(
+                      onTap: ()=> Get.to(()=> const CartScreen()),
                       icon: Iconsax.shopping_cart,
                       title: 'My Cart ',
                       subTitle: 'Add, remove products and move to checkout'),
