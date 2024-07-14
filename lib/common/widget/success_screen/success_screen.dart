@@ -29,7 +29,7 @@ class SuccessScreen extends StatelessWidget {
               Text(subTitle,style: Theme.of(context).textTheme.labelMedium,textAlign: TextAlign.center,),
               const SizedBox(height: TSizes.spaceBtwSections),
 
-              SizedBox(width: double.infinity, child: ElevatedButton(onPressed: ()=> Get.to(LoginScreen()), child: const Text(TTexts.tContinue))),
+              SizedBox(width: double.infinity, child: ElevatedButton(onPressed: onPressed, child: const Text(TTexts.tContinue))),
             ],
           ),
         ),
