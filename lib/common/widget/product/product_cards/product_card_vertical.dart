@@ -10,9 +10,7 @@ import 'package:ecom/common/widget/texts/product_price_text.dart';
 import 'package:ecom/common/widget/texts/product_title_text.dart';
 import 'package:ecom/common/widget/texts/t_brand_title_with_verified_icon.dart';
 import 'package:ecom/features/shop/screens/product_detail/product_detail.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -68,10 +66,10 @@ class TProductCardVertical extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: TSizes.spaceBtwItems / 2,
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.only(left: TSizes.sm),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

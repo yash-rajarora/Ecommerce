@@ -8,8 +8,10 @@ import 'package:ecom/common/widget/custom_shapes/Container/search_container.dart
 import 'package:ecom/common/widget/layouts/grid_layout.dart';
 import 'package:ecom/common/widget/product/cart/cart_menu_icon.dart';
 import 'package:ecom/common/widget/texts/section_heading.dart';
+import 'package:ecom/features/shop/screens/brand/all_brands.dart';
 import 'package:ecom/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class StoreScreen extends StatelessWidget {
   const StoreScreen({super.key});
@@ -52,7 +54,7 @@ class StoreScreen extends StatelessWidget {
                           const SizedBox(height: TSizes.spaceBtwSections),
                           TSectionHeading(
                             title: 'Featured Brands',
-                            onPressed: () {},
+                            onPressed: () => Get.to(()=>const AllBrandsScreen()),
                           ),
                           const SizedBox(height: TSizes.spaceBtwItems / 1.5),
                           TGridLayout(

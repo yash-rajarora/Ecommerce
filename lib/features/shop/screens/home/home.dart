@@ -6,6 +6,7 @@ import 'package:ecom/common/widget/custom_shapes/Container/search_container.dart
 import 'package:ecom/common/widget/layouts/grid_layout.dart';
 import 'package:ecom/common/widget/product/product_cards/product_card_vertical.dart';
 import 'package:ecom/common/widget/texts/section_heading.dart';
+import 'package:ecom/features/shop/screens/all_products/all_products.dart';
 import 'package:ecom/features/shop/screens/home/widget/home_appbar.dart';
 import 'package:ecom/features/shop/screens/home/widget/home_categories.dart';
 import 'package:ecom/features/shop/screens/home/widget/promo_slider.dart';
@@ -13,6 +14,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -57,20 +59,24 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(TSizes.defaultSpace),
+              padding: const EdgeInsets.all(TSizes.defaultSpace),
               child: Column(
                 children: [
-                  TPromoSlider(
+                  const TPromoSlider(
                     banner: [
                       TImages.promoBanner1,
                       TImages.promoBanner2,
                       TImages.promoBanner3,
                     ],
                   ),
-                  SizedBox(height: TSizes.spaceBtwSections),
-                  TSectionHeading(title: TTexts.popularProducts,onPressed: (){}),
-                  SizedBox(height:TSizes.spaceBtwItems),
-                  TGridLayout(itemCount: 4,itemBuilder: (_,index) => TProductCardVertical()),
+                  const SizedBox(height: TSizes.spaceBtwSections),
+                  TSectionHeading(
+                      title: TTexts.popularProducts,
+                      onPressed: () => Get.to(() => const AllProducts())),
+                  const SizedBox(height: TSizes.spaceBtwItems),
+                  TGridLayout(
+                      itemCount: 4,
+                      itemBuilder: (_, index) => TProductCardVertical()),
                 ],
               ),
             ),
@@ -80,5 +86,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-
