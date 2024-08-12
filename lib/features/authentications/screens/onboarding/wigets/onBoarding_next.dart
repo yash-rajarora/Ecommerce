@@ -2,7 +2,7 @@ import 'package:ecom/Utils/constants/colors.dart';
 import 'package:ecom/Utils/constants/sizes.dart';
 import 'package:ecom/Utils/device/device_utility.dart';
 import 'package:ecom/Utils/helpers/helper_functions.dart';
-import 'package:ecom/features/authentications/controllers.onboarding/onboarding_controller.dart';
+import 'package:ecom/features/authentications/controllers/onboarding/onboarding_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 

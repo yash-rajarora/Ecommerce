@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:ecom/Utils/constants/image_strings.dart';
 import 'package:ecom/Utils/constants/text_strings.dart';
 import 'package:get/get.dart';
-import 'package:ecom/features/authentications/controllers.onboarding/onboarding_controller.dart';
+import 'package:ecom/features/authentications/controllers/onboarding/onboarding_controller.dart';
 
 import 'wigets/onBoarding_next.dart';
 
