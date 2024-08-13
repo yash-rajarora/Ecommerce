@@ -4,6 +4,8 @@ import 'package:ecom/Utils/exceptions/format_exceptions.dart';
 import 'package:ecom/Utils/exceptions/platform_exceptions.dart';
 import 'package:ecom/features/authentications/screens/login/login.dart';
 import 'package:ecom/features/authentications/screens/onboarding/onboarding.dart';
+import 'package:ecom/features/authentications/screens/signup/verify_email.dart';
+import 'package:ecom/navbar_menu.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -23,14 +25,39 @@ class AuthenticationRepository extends GetxController {
   }
 
   screenRedirect() async {
-    deviceStorage.writeIfNull('isFirstTime', true);
-    deviceStorage.read('isFirstTime') != true
-        ? Get.offAll(() => const LoginScreen())
-        : Get.offAll(const OnBoardingScreen());
+    final user = _auth.currentUser;
+    if(user!=null){
+      if(user.emailVerified){
+        Get.offAll(()=> const NavigationMenu());
+      } else{
+        Get.off(()=> VerifyEmailScreen(email: _auth.currentUser?.email));
+      }
+    }
+    else {
+      deviceStorage.writeIfNull('isFirstTime', true);
+      deviceStorage.read('isFirstTime') != true
+          ? Get.offAll(() => const LoginScreen())
+          : Get.offAll(const OnBoardingScreen());
+    }
   }
 
   // ------------ Email & Password signin --------------
   /// SignIn
+  Future<UserCredential> loginWithEmailAndPassword(String email, String password) async{
+    try{
+      return await _auth.signInWithEmailAndPassword(email: email, password: password);
+    }on FirebaseAuthException catch(e){
+      throw TFirebaseAuthException(e.code).message;
+    }on FirebaseException catch(e){
+      throw TFirebaseException(e.code).message;
+    }on FormatException catch(_){
+      throw const TFormatException();
+    }on PlatformException catch(e){
+      throw TPlatformException(e.code).message;
+    } catch(e){
+      throw 'Something went wrong. Please try again';
+    }
+  }
 
   /// Register
   Future<UserCredential> registerWithEmailAndPassword(String email, String password) async{
@@ -50,6 +77,21 @@ class AuthenticationRepository extends GetxController {
   }
 
   /// Email-verification
+  Future<void> sendEmailVerification() async{
+    try{
+      await _auth.currentUser?.sendEmailVerification();
+    }on FirebaseAuthException catch(e){
+      throw TFirebaseAuthException(e.code).message;
+    }on FirebaseException catch(e){
+      throw TFirebaseException(e.code).message;
+    }on FormatException catch(_){
+      throw const TFormatException();
+    }on PlatformException catch(e){
+      throw TPlatformException(e.code).message;
+    } catch(e){
+      throw 'Something went wrong. Please try again';
+    }
+  }
 
   /// ReAuthenticate User
 
@@ -62,6 +104,22 @@ class AuthenticationRepository extends GetxController {
 
   // ------------ Logout and delete --------------
   ///Logout
+  Future<void> logout() async{
+    try{
+      await FirebaseAuth.instance.signOut();
+      Get.off(()=> const LoginScreen());
+    }on FirebaseAuthException catch(e){
+      throw TFirebaseAuthException(e.code).message;
+    }on FirebaseException catch(e){
+      throw TFirebaseException(e.code).message;
+    }on FormatException catch(_){
+      throw const TFormatException();
+    }on PlatformException catch(e){
+      throw TPlatformException(e.code).message;
+    } catch(e){
+      throw 'Something went wrong. Please try again';
+    }
+  }
 
   ///delete
 }

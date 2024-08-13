@@ -4,6 +4,7 @@ import 'package:ecom/common/widget/custom_shapes/Container/primary_header_contai
 import 'package:ecom/common/widget/list_tiles/settings_menu_tile.dart';
 import 'package:ecom/common/widget/list_tiles/user_profile_tile.dart';
 import 'package:ecom/common/widget/texts/section_heading.dart';
+import 'package:ecom/data/repositories/authentication/authentication_repository.dart';
 import 'package:ecom/features/personalization/screens/address/address.dart';
 import 'package:ecom/features/shop/screens/cart/cart.dart';
 import 'package:ecom/features/shop/screens/order/order.dart';
@@ -100,7 +101,7 @@ class SettingsScreen extends StatelessWidget {
                   const SizedBox(height: TSizes.spaceBtwSections),
                   SizedBox(
                     width: double.infinity,
-                    child: OutlinedButton(onPressed: (){}, child: Text('Logout')),
+                    child: OutlinedButton(onPressed: ()=>AuthenticationRepository.instance.logout(), child: Text('Logout')),
                   )
                 ],
               ),

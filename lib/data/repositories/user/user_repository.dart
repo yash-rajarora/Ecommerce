@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecom/Utils/exceptions/firebase_exceptions.dart';
 import 'package:ecom/Utils/exceptions/format_exceptions.dart';
 import 'package:ecom/Utils/exceptions/platform_exceptions.dart';
-import 'package:ecom/features/personalization/models/user_model.dart';
+import 'package:ecom/features/authentications/models/user_model.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
@@ -27,3 +27,4 @@ class UserRepository extends GetxController {
     }
   }
 }
+

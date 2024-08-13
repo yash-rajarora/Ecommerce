@@ -4,8 +4,8 @@ import 'package:ecom/Utils/popup/full_screen_loader.dart';
 import 'package:ecom/Utils/popup/loaders.dart';
 import 'package:ecom/data/repositories/authentication/authentication_repository.dart';
 import 'package:ecom/data/repositories/user/user_repository.dart';
+import 'package:ecom/features/authentications/models/user_model.dart';
 import 'package:ecom/features/authentications/screens/signup/verify_email.dart';
-import 'package:ecom/features/personalization/models/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -74,7 +74,7 @@ class SignupController extends GetxController {
 
       TLoaders.successSnackBar(title: 'Congratulations',message: 'Your account has been created! Verify email to continue.');
 
-      Get.to(()=>const VerifyEmailScreen());
+      Get.to(()=> VerifyEmailScreen(email: email.text.trim()));
 
 
     } catch (e) {
