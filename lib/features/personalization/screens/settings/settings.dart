@@ -6,6 +6,7 @@ import 'package:ecom/common/widget/list_tiles/user_profile_tile.dart';
 import 'package:ecom/common/widget/texts/section_heading.dart';
 import 'package:ecom/data/repositories/authentication/authentication_repository.dart';
 import 'package:ecom/features/personalization/screens/address/address.dart';
+import 'package:ecom/features/personalization/screens/settings/widgets/load_data.dart';
 import 'package:ecom/features/shop/screens/cart/cart.dart';
 import 'package:ecom/features/shop/screens/order/order.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,7 @@ class SettingsScreen extends StatelessWidget {
 
             /// Body
             Padding(
-              padding: EdgeInsets.all(TSizes.defaultSpace),
+              padding: const EdgeInsets.all(TSizes.defaultSpace),
               child: Column(
                 children: [
                   const TSectionHeading(
@@ -76,10 +77,12 @@ class SettingsScreen extends StatelessWidget {
                   const TSectionHeading(
                       title: 'App Settings', showActionButton: false),
                   const SizedBox(height: TSizes.spaceBtwItems),
-                  const TSettingsMenuTile(
+                  TSettingsMenuTile(
                       icon: Iconsax.document_upload,
                       title: 'Load Data',
-                      subTitle: 'Upload Data to your Cloud Firebase'),
+                      subTitle: 'Upload Data to your Cloud Firebase',
+                      onTap: ()=> Get.to(()=> const LoadDataScreen()),
+                  ),
                   TSettingsMenuTile(
                     icon: Iconsax.location,
                     title: 'Geolocation',

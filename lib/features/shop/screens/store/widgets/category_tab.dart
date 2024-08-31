@@ -4,10 +4,13 @@ import 'package:ecom/common/widget/brands/brand_show_case.dart';
 import 'package:ecom/common/widget/layouts/grid_layout.dart';
 import 'package:ecom/common/widget/product/product_cards/product_card_vertical.dart';
 import 'package:ecom/common/widget/texts/section_heading.dart';
+import 'package:ecom/features/shop/models/category_model.dart';
 import 'package:flutter/material.dart';
 
 class TCategoryTab extends StatelessWidget {
-  const TCategoryTab({super.key});
+  const TCategoryTab({super.key, required this.category});
+
+  final CategoryModel category;
 
   @override
   Widget build(BuildContext context) {

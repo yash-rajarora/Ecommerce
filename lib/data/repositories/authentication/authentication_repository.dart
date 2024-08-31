@@ -2,6 +2,7 @@ import 'package:ecom/Utils/exceptions/firebase_auth_exceptions.dart';
 import 'package:ecom/Utils/exceptions/firebase_exceptions.dart';
 import 'package:ecom/Utils/exceptions/format_exceptions.dart';
 import 'package:ecom/Utils/exceptions/platform_exceptions.dart';
+import 'package:ecom/data/repositories/user/user_repository.dart';
 import 'package:ecom/features/authentications/screens/login/login.dart';
 import 'package:ecom/features/authentications/screens/onboarding/onboarding.dart';
 import 'package:ecom/features/authentications/screens/signup/verify_email.dart';
@@ -19,6 +20,8 @@ class AuthenticationRepository extends GetxController {
 
   final deviceStorage = GetStorage();
   final _auth = FirebaseAuth.instance;
+
+  User? get authUser => _auth.currentUser;
 
   @override
   void onReady() {
@@ -98,6 +101,39 @@ class AuthenticationRepository extends GetxController {
   /// ReAuthenticate User
 
   /// Forget Password
+  Future<void> sendPasswordResetEmail(String email) async{
+    try{
+      await _auth.sendPasswordResetEmail(email: email);
+    }on FirebaseAuthException catch(e){
+      throw TFirebaseAuthException(e.code).message;
+    }on FirebaseException catch(e){
+      throw TFirebaseException(e.code).message;
+    }on FormatException catch(_){
+      throw const TFormatException();
+    }on PlatformException catch(e){
+      throw TPlatformException(e.code).message;
+    } catch(e){
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
+  ///Re-Auth User
+  Future<void> reAuthenticateWithEmailAndPassword(String email,String password) async{
+    try{
+      AuthCredential credential = EmailAuthProvider.credential(email: email, password: password);
+      await _auth.currentUser!.reauthenticateWithCredential(credential);
+    }on FirebaseAuthException catch(e){
+      throw TFirebaseAuthException(e.code).message;
+    }on FirebaseException catch(e){
+      throw TFirebaseException(e.code).message;
+    }on FormatException catch(_){
+      throw const TFormatException();
+    }on PlatformException catch(e){
+      throw TPlatformException(e.code).message;
+    } catch(e){
+      throw 'Something went wrong. Please try again';
+    }
+  }
 
   // ------------ Social Login --------------
   ///Google
@@ -147,4 +183,20 @@ class AuthenticationRepository extends GetxController {
   }
 
   ///delete
+  Future<void> deleteAccount() async{
+    try{
+      await UserRepository.instance.removeUserRecord(_auth.currentUser!.uid);
+      await _auth.currentUser?.delete();
+    }on FirebaseAuthException catch(e){
+      throw TFirebaseAuthException(e.code).message;
+    }on FirebaseException catch(e){
+      throw TFirebaseException(e.code).message;
+    }on FormatException catch(_){
+      throw const TFormatException();
+    }on PlatformException catch(e){
+      throw TPlatformException(e.code).message;
+    } catch(e){
+      throw 'Something went wrong. Please try again';
+    }
+  }
 }

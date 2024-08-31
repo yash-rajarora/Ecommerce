@@ -4,7 +4,6 @@ import 'package:ecom/Utils/popup/full_screen_loader.dart';
 import 'package:ecom/Utils/popup/loaders.dart';
 import 'package:ecom/data/repositories/authentication/authentication_repository.dart';
 import 'package:ecom/features/personalization/controllers/user_controller.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';

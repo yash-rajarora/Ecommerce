@@ -8,6 +8,7 @@ import 'package:ecom/common/widget/custom_shapes/Container/search_container.dart
 import 'package:ecom/common/widget/layouts/grid_layout.dart';
 import 'package:ecom/common/widget/product/cart/cart_menu_icon.dart';
 import 'package:ecom/common/widget/texts/section_heading.dart';
+import 'package:ecom/features/shop/controllers/category_controller.dart';
 import 'package:ecom/features/shop/screens/brand/all_brands.dart';
 import 'package:ecom/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:flutter/material.dart';
@@ -18,8 +19,9 @@ class StoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = CategoryController.instance.featuredCategories;
     return DefaultTabController(
-      length: 5,
+      length: controller.length,
       child: Scaffold(
         appBar: TAppBar(
           title:
@@ -66,23 +68,13 @@ class StoreScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    bottom: const TTabBar(tabs: [
-                      Tab(child: Text('Sports')),
-                      Tab(child: Text('Furniture')),
-                      Tab(child: Text('Electronics')),
-                      Tab(child: Text('Clothes')),
-                      Tab(child: Text('Cosmetics'))
-                    ])),
+                    bottom: TTabBar(
+                      tabs: controller.map((category) => Tab(child: Text(category.name))).toList(),
+                    )),
               ];
             },
-            body: const TabBarView(
-              children: [
-                TCategoryTab(),
-                TCategoryTab(),
-                TCategoryTab(),
-                TCategoryTab(),
-                TCategoryTab(),
-              ],
+            body: TabBarView(
+              children: controller.map((category) => TCategoryTab(category: category))      .toList()
             )),
       ),
     );
