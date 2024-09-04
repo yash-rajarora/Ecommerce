@@ -1,5 +1,6 @@
 import 'package:ecom/Utils/constants/colors.dart';
 import 'package:ecom/bindings/general_bindings.dart';
+import 'package:ecom/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:ecom/utils/constants/text_strings.dart';
@@ -17,6 +18,7 @@ class App extends StatelessWidget {
       darkTheme: TAppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
       initialBinding: GeneralBindings(),
+      getPages: AppRoutes.pages,
       // initialBinding: GeneralBindings(),
       home: const Scaffold(
         backgroundColor: TColors.primary,

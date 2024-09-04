@@ -62,13 +62,7 @@ class HomeScreen extends StatelessWidget {
               padding: const EdgeInsets.all(TSizes.defaultSpace),
               child: Column(
                 children: [
-                  const TPromoSlider(
-                    banner: [
-                      TImages.promoBanner1,
-                      TImages.promoBanner2,
-                      TImages.promoBanner3,
-                    ],
-                  ),
+                  const TPromoSlider(),
                   const SizedBox(height: TSizes.spaceBtwSections),
                   TSectionHeading(
                       title: TTexts.popularProducts,
