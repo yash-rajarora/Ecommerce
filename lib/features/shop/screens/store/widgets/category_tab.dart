@@ -5,6 +5,7 @@ import 'package:ecom/common/widget/layouts/grid_layout.dart';
 import 'package:ecom/common/widget/product/product_cards/product_card_vertical.dart';
 import 'package:ecom/common/widget/texts/section_heading.dart';
 import 'package:ecom/features/shop/models/category_model.dart';
+import 'package:ecom/features/shop/models/product_model.dart';
 import 'package:flutter/material.dart';
 
 class TCategoryTab extends StatelessWidget {
@@ -41,7 +42,7 @@ class TCategoryTab extends StatelessWidget {
               const SizedBox(height: TSizes.spaceBtwItems),
               TGridLayout(
                   itemCount: 4,
-                  itemBuilder: (_, index) => const TProductCardVertical())
+                  itemBuilder: (_, index) => TProductCardVertical(product: ProductModel.empty()))
             ],
           ),
         ),

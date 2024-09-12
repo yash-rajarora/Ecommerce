@@ -1,19 +1,17 @@
-import 'package:ecom/Utils/constants/image_strings.dart';
 import 'package:ecom/Utils/constants/sizes.dart';
 import 'package:ecom/Utils/constants/text_strings.dart';
 import 'package:ecom/common/widget/custom_shapes/Container/primary_header_container.dart';
 import 'package:ecom/common/widget/custom_shapes/Container/search_container.dart';
 import 'package:ecom/common/widget/layouts/grid_layout.dart';
 import 'package:ecom/common/widget/product/product_cards/product_card_vertical.dart';
+import 'package:ecom/common/widget/shimmers/vertical_product_shimmer.dart';
 import 'package:ecom/common/widget/texts/section_heading.dart';
+import 'package:ecom/features/shop/controllers/product_controller.dart';
 import 'package:ecom/features/shop/screens/all_products/all_products.dart';
 import 'package:ecom/features/shop/screens/home/widget/home_appbar.dart';
 import 'package:ecom/features/shop/screens/home/widget/home_categories.dart';
 import 'package:ecom/features/shop/screens/home/widget/promo_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -21,6 +19,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProductController());
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -68,9 +67,18 @@ class HomeScreen extends StatelessWidget {
                       title: TTexts.popularProducts,
                       onPressed: () => Get.to(() => const AllProducts())),
                   const SizedBox(height: TSizes.spaceBtwItems),
-                  TGridLayout(
-                      itemCount: 4,
-                      itemBuilder: (_, index) => TProductCardVertical()),
+                  Obx(
+                      () {
+                        if(controller.isLoading.value) return const TVerticalProductShimmer();
+                        if(controller.featuredProducts.isEmpty){
+                          return Center(child: Text('No data Found!', style: Theme.of(context).textTheme.bodyMedium));
+                        }
+                        return TGridLayout(
+                            itemCount: controller.featuredProducts.length,
+                            itemBuilder: (_,
+                                index) => TProductCardVertical(product:controller.featuredProducts[index]));
+                      }),
+
                 ],
               ),
             ),

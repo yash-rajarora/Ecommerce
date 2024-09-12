@@ -3,6 +3,7 @@ import 'package:ecom/common/widget/appbar/appbar.dart';
 import 'package:ecom/common/widget/icons/t_circular_icon.dart';
 import 'package:ecom/common/widget/layouts/grid_layout.dart';
 import 'package:ecom/common/widget/product/product_cards/product_card_vertical.dart';
+import 'package:ecom/features/shop/models/product_model.dart';
 import 'package:ecom/features/shop/screens/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -27,7 +28,7 @@ class FavouriteScreen extends StatelessWidget {
           padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
             children: [
-              TGridLayout(itemCount: 4, itemBuilder: (_,index)=>const TProductCardVertical())
+              TGridLayout(itemCount: 4, itemBuilder: (_,index)=> TProductCardVertical(product: ProductModel.empty())),
             ],
           ),
         ),

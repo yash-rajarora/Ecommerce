@@ -4,6 +4,7 @@ import 'package:ecom/common/widget/list_tiles/settings_menu_tile.dart';
 import 'package:ecom/data/dummydata/dummy_data.dart';
 import 'package:ecom/data/repositories/banners/banner_repository.dart';
 import 'package:ecom/data/repositories/categories/category_repository.dart';
+import 'package:ecom/data/repositories/product/product_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -52,8 +53,15 @@ class LoadDataScreen extends StatelessWidget {
                 ),
                 TSettingsMenuTile(
                     icon: Iconsax.document_upload,
-                    onTap: () {},
-                    title: 'Categories',
+                    onTap: () async {
+                      try{
+                        await ProductRepository.instance.uploadDummyData(TDummyData.products);
+                        Get.snackbar('Success', 'Dummy Data Uploaded');
+                      } catch(e){
+                        Get.snackbar('Error', e.toString());
+                      }
+                    },
+                    title: 'Load Products',
                     subTitle: 'Upload the Categories Dummy data'
                 ),
               ],

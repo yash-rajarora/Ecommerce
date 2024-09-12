@@ -1,5 +1,6 @@
 import 'package:ecom/Utils/constants/sizes.dart';
 import 'package:ecom/common/widget/texts/section_heading.dart';
+import 'package:ecom/features/shop/models/product_model.dart';
 import 'package:ecom/features/shop/screens/product_detail/widgets/bottom_add_to_cart.dart';
 import 'package:ecom/features/shop/screens/product_detail/widgets/product_attributes.dart';
 import 'package:ecom/features/shop/screens/product_detail/widgets/product_meta_data.dart';
@@ -12,12 +13,14 @@ import 'widgets/product_detail_image_slider.dart';
 import 'widgets/rating_share_widget.dart';
 
 class ProductDetail extends StatelessWidget {
-  const ProductDetail({super.key});
+  const ProductDetail({super.key, required this.product});
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: TBottomAddToCart(),
+      bottomNavigationBar: const TBottomAddToCart(),
       body: SingleChildScrollView(
         child: Column(
           children: [
