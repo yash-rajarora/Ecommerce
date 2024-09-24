@@ -1,10 +1,10 @@
 import 'package:ecom/Utils/constants/colors.dart';
+import 'package:ecom/Utils/constants/enums.dart';
 import 'package:ecom/Utils/constants/image_strings.dart';
 import 'package:ecom/Utils/constants/sizes.dart';
 import 'package:ecom/Utils/helpers/helper_functions.dart';
 import 'package:ecom/common/widget/custom_shapes/Container/rounded_container.dart';
 import 'package:ecom/common/widget/images/t_circular_image.dart';
-import 'package:ecom/common/widget/texts/t_brand_title_text.dart';
 import 'package:ecom/common/widget/texts/t_brand_title_with_verified_icon.dart';
 import 'package:flutter/material.dart';
 

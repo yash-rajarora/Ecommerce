@@ -1,4 +1,5 @@
 import 'package:ecom/Utils/constants/colors.dart';
+import 'package:ecom/Utils/constants/enums.dart';
 import 'package:ecom/Utils/constants/sizes.dart';
 import 'package:ecom/common/widget/texts/t_brand_title_text.dart';
 import 'package:flutter/material.dart';

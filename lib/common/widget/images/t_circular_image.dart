@@ -50,9 +50,10 @@ class TCircularImage extends StatelessWidget {
                   errorWidget: (context,url,error)=> const Icon(Icons.error),
                 )
               : Image(
-                  image: isNetworkImage
-                      ? NetworkImage(image)
-                      : AssetImage(image) as ImageProvider),
+                  fit: fit,
+                  image: AssetImage(image),
+                  color: overlayColor,
+          ),
         ),
       ),
     );

@@ -6,7 +6,7 @@ import 'package:ecom/common/widget/layouts/grid_layout.dart';
 import 'package:ecom/common/widget/product/product_cards/product_card_vertical.dart';
 import 'package:ecom/common/widget/shimmers/vertical_product_shimmer.dart';
 import 'package:ecom/common/widget/texts/section_heading.dart';
-import 'package:ecom/features/shop/controllers/product_controller.dart';
+import 'package:ecom/features/shop/controllers/product/product_controller.dart';
 import 'package:ecom/features/shop/screens/all_products/all_products.dart';
 import 'package:ecom/features/shop/screens/home/widget/home_appbar.dart';
 import 'package:ecom/features/shop/screens/home/widget/home_categories.dart';

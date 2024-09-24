@@ -1,3 +1,4 @@
+import 'package:ecom/Utils/constants/enums.dart';
 import 'package:ecom/Utils/constants/sizes.dart';
 import 'package:ecom/common/widget/texts/section_heading.dart';
 import 'package:ecom/features/shop/models/product_model.dart';
@@ -24,7 +25,7 @@ class ProductDetail extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const TproductImageSlider(),
+            TproductImageSlider(product: product,),
             Padding(
               padding: const EdgeInsets.only(
                   right: TSizes.defaultSpace,
@@ -34,11 +35,11 @@ class ProductDetail extends StatelessWidget {
                 children: [
                   const TRatingAndShare(),
 
-                  const TProductMetaData(),
+                  TProductMetaData(product: product),
 
-                  const ProductAttributes(),
+                  if(product.productType == ProductType.variable.toString()) ProductAttributes(product: product),
+                  if(product.productType == ProductType.variable.toString()) const SizedBox(height: TSizes.spaceBtwSections),
 
-                  const SizedBox(height: TSizes.spaceBtwSections),
                   SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
@@ -49,16 +50,16 @@ class ProductDetail extends StatelessWidget {
                   const TSectionHeading(
                       title: 'Description', showActionButton: false),
                   const SizedBox(height: TSizes.spaceBtwItems),
-                  const ReadMoreText(
-                    'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.',
+                  ReadMoreText(
+                    product.description ?? '',
                     trimLines: 2,
                     trimMode: TrimMode.Line,
                     trimCollapsedText: 'Show More',
                     trimExpandedText: 'Less',
                     moreStyle:
-                        TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                        const TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
                     lessStyle:
-                        TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                        const TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
                   ),
 
                   ///Review

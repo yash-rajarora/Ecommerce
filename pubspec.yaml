@@ -53,6 +53,7 @@ flutter:
     - assets/images/animations/
     - assets/images/animations/72462-check-register.json
     - assets/icons/
+    - assets/icons/brands/
     - assets/icons/categories/
     - assets/images/banners/
     - assets/icons/payment_methods/

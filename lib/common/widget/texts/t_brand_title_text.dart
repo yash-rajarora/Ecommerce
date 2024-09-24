@@ -1,11 +1,7 @@
 import 'package:ecom/Utils/constants/colors.dart';
+import 'package:ecom/Utils/constants/enums.dart';
 import 'package:flutter/material.dart';
 
-enum TextSizes {
-  small,
-  medium,
-  large,
-}
 
 class TBrandTitleText extends StatelessWidget {
   const TBrandTitleText({

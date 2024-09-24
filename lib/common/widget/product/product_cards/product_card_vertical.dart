@@ -9,7 +9,7 @@ import 'package:ecom/common/widget/images/t_rounded_image.dart';
 import 'package:ecom/common/widget/texts/product_price_text.dart';
 import 'package:ecom/common/widget/texts/product_title_text.dart';
 import 'package:ecom/common/widget/texts/t_brand_title_with_verified_icon.dart';
-import 'package:ecom/features/shop/controllers/product_controller.dart';
+import 'package:ecom/features/shop/controllers/product/product_controller.dart';
 import 'package:ecom/features/shop/models/product_model.dart';
 import 'package:ecom/features/shop/screens/product_detail/product_detail.dart';
 import 'package:flutter/material.dart';
